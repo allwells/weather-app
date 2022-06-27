@@ -13,7 +13,7 @@ const App = () => {
   const options = {
     url: '/v1/current.json',
     method: 'get',
-    baseURL: 'http://api.weatherapi.com',
+    baseURL: 'https://api.weatherapi.com',
     headers: { 'Access-Control-Allow-Origin': '*' },
     params: { key: API_KEY, q: city }
   }
