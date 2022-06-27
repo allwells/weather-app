@@ -8,19 +8,20 @@ const App = () => {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState();
   const [errorMsg, setErrorMsg] = useState("");
-
   const API_KEY = "76df88098c544693a0b133409222706";
-  const URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`;
 
+  const options = {
+   url: '/v1/current.json',
+    method: 'get',
+    baseURL: 'https://api.weatherapi.com/v1',
+    headers: {'Access-Control-Allow-Origin': '*'},
+    params: { key: API_KEY, q: city }
+  }
+  
   const search = (event) => {
     event.preventDefault();
 
-    axios
-      .get(URL)
-      .then((response) => {
-        setWeather(response.data);
-      })
-      .catch(function (error) {
+    axios.request(options).catch(function (error) {
         setErrorMsg(error.message);
 
         setTimeout(function () {
