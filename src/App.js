@@ -11,10 +11,10 @@ const App = () => {
   const API_KEY = "76df88098c544693a0b133409222706";
 
   const options = {
-   url: '/v1/current.json',
+    url: '/v1/current.json',
     method: 'get',
-    baseURL: 'https://api.weatherapi.com',
-    headers: {'Access-Control-Allow-Origin': '*'},
+    baseURL: 'http://api.weatherapi.com',
+    headers: { 'Access-Control-Allow-Origin': '*' },
     params: { key: API_KEY, q: city }
   }
   
