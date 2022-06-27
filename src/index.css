@@ -150,13 +150,16 @@ code {
 
 .weather-details-section {
   flex-grow: 1;
+  font-size: 17px;
   /* border: 1px solid red; */
 }
 
 .location {
   margin: 0;
+  margin-bottom: 1rem;
 }
 
-.local-time {
-  font-size: 16px;
+.table-heading {
+  width: 4rem;
+  font-weight: 600;
 }

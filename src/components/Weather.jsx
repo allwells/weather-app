@@ -6,23 +6,38 @@ const Weather = ({ weather }) => {
     return (
       <div className="weather-card">
         <div className="weather-details-section">
-          <h1 className="location">Weather in {weather.location.name}</h1>
-          <p className="weather-description">
-            <strong>Decription:</strong> {weather.current.condition.text}
-          </p>
-          <p className="local-time">
-            <strong>Local Time:</strong> {date.toUTCString().slice(17, 22)}
-          </p>
-          <p className="local-time">
-            <strong>Date:</strong> {date.toUTCString().slice(0, 16)}
-          </p>
-          <p className="temperature">
-            <strong>Temperature:</strong> {weather.current.temp_c}°C
-          </p>
-          <p className="wind-speed">
-            <strong>Wind:</strong> {weather.current.wind_mph}mph{" "}
-            {weather.current.wind_dir}
-          </p>
+          <table>
+            <h1 className="location">Weather in {weather.location.name}</h1>
+
+            <tbody>
+              <tr className="weather-description">
+                <td className="table-heading">Description:</td>
+                <td>{weather.current.condition.text}</td>
+              </tr>
+
+              <tr className="local-time">
+                <td className="table-heading">Local Time:</td>
+                <td>{date.toUTCString().slice(17, 22)}</td>
+              </tr>
+
+              <tr className="local-time">
+                <td className="table-heading">Date:</td>
+                <td>{date.toUTCString().slice(0, 16)}</td>
+              </tr>
+
+              <tr className="temperature">
+                <td className="table-heading">Temperature:</td>
+                <td>{weather.current.temp_c}°C</td>
+              </tr>
+
+              <tr className="wind-speed">
+                <td className="table-heading">Wind:</td>
+                <td>
+                  {weather.current.wind_mph}mph {weather.current.wind_dir}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div className="weather-icon-section">
