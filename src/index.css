@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* ERROR MESSAGE */
+.error-msg {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  margin-top: 1rem;
+  text-align: left;
+  border-radius: 5px;
+  place-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #d33;
+  justify-content: flex-start;
+}
+
+.error-msg svg {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  margin-right: 0.5rem;
+}
+
+/* DISPLAY - BACKGROUND */
+.app {
+  color: #fff;
+  min-height: 100vh;
+  background-image: url("./imgs/cloudy.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tint {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  place-items: center;
+  flex-direction: column;
+  background-color: #333b;
+  justify-content: flex-start;
+}
+
+.main-layout {
+  width: 60%;
+  display: flex;
+  padding: 5% 0;
+  place-items: center;
+  height: fit-content;
+  flex-direction: column;
+}
+
+/* SEARCH FORM */
+.search-form {
+  width: 100%;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  outline: 0;
+  flex-grow: 1;
+  height: 3rem;
+  color: #eee;
+  font-size: 15px;
+  border-width: 0;
+  border-radius: 5px;
+  padding: 0 0.75rem;
+  background-color: #333;
+  border: 1px solid #333;
+  transition-duration: 0.4s;
+}
+
+.search-input:hover {
+  border: 1px solid #777;
+}
+
+.search-input:focus {
+  border: 1px solid #0369a1;
+}
+
+/* SEARCH BUTTON */
+.search-btn {
+  outline: 0;
+  height: 2.5rem;
+  display: flex;
+  border-width: 0;
+  padding: 0 0.7rem;
+  width: fit-content;
+  border-radius: 3px;
+  place-items: center;
+  margin-left: -2.9rem;
+  justify-content: center;
+  background-color: #333;
+  transition-duration: 0.3s;
+  border: 1px solid transparent;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+  background-color: #444;
+}
+
+.search-btn:focus {
+  border: 1px solid #777;
+  background-color: #444;
+}
+
+.search-btn svg {
+  width: 18px;
+  height: 18px;
+  color: #777;
+}
+
+.search-btn:hover > svg {
+  color: #fff;
+  transition-duration: 0.4s;
+}
+
+.search-btn:focus > svg {
+  color: #fff;
+}
+
+/* WEATHER DISPLAY CARD */
+.weather-card {
+  gap: 25px;
+  width: 100%;
+  display: flex;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 20px;
+  background-color: #0005;
+  backdrop-filter: blur(15px);
+  justify-content: space-between;
+}
+
+.weather-details-section {
+  flex-grow: 1;
+  /* border: 1px solid red; */
+}
+
+.location {
+  margin: 0;
+}
+
+.local-time {
+  font-size: 16px;
+}
