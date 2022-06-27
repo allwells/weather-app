@@ -56,7 +56,8 @@ const App = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              Error: Invalid country or city! Check your input and try again.
+           {errorMsg}
+//               Error: Invalid country or city! Check your input and try again.
             </div>
           ) : null}
 
