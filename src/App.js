@@ -58,7 +58,6 @@ const App = () => {
                 ></path>
               </svg>
            {errorMsg}
-//               Error: Invalid country or city! Check your input and try again.
             </div>
           ) : null}
 
