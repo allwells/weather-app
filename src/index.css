@@ -38,7 +38,7 @@ code {
 .app {
   color: #fff;
   min-height: 100vh;
-  background-image: url("./imgs/cloudy.jpg");
+  background-image: url("./imgs/rain.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -144,7 +144,7 @@ code {
   margin-top: 2rem;
   border-radius: 20px;
   background-color: #0005;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(8px);
   justify-content: space-between;
 }
 
