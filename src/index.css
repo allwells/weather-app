@@ -151,10 +151,14 @@ code {
 .weather-details-section {
   flex-grow: 1;
   font-size: 17px;
-  /* border: 1px solid red; */
+}
+
+table {
+  width: 100%;
 }
 
 .location {
+  width: 100%;
   margin: 0;
   margin-bottom: 1rem;
 }

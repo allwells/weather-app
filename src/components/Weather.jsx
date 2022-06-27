@@ -6,9 +6,9 @@ const Weather = ({ weather }) => {
     return (
       <div className="weather-card">
         <div className="weather-details-section">
-          <table>
-            <h1 className="location">Weather in {weather.location.name}</h1>
+          <h1 className="location">Weather in {weather.location.name}</h1>
 
+          <table>
             <tbody>
               <tr className="weather-description">
                 <td className="table-heading">Description:</td>
