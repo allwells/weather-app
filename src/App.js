@@ -34,18 +34,19 @@ const App = () => {
    */
   const API_KEY = '76df88098c544693a0b133409222706'
 
-  /**
-   * @URL is the URL which contains the location on the web where this data is fetched.
-   * It contains the @API_KEY for authentication and @city which is the search term.
-   *
-   */
-  const URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`
+  const options = {
+    url: '/v1/current.json',
+    method: 'get',
+    baseURL: 'https://api.weatherapi.com',
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    params: { key: API_KEY, q: city },
+  }
 
   const search = (event) => {
     event.preventDefault()
 
     /**
-     * Here @axios gets the data from the @URL and @then pushes all of that data
+     * Here @axios gets the data from the @URL in the options and @then pushes all of that data
      * to @setWeather object which can then be accessed using the @weather variable.
      *
      * If there was an error and the data was not fetched,
@@ -54,15 +55,15 @@ const App = () => {
      *
      */
     axios
-      .get(URL)
-      .then((response) => {
+      .request(options)
+      .then(function (response) {
         setWeather(response.data)
       })
       .catch(function (error) {
-        setErrorMsg(true)
+        setErrorMsg(error.message)
 
         setTimeout(function () {
-          setErrorMsg(false)
+          setErrorMsg('')
         }, 5000)
       })
   }
@@ -112,7 +113,7 @@ const App = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              Error: Invalid country or city! Check your input and try again.
+              {errorMsg}
             </div>
           ) : null}
 
