@@ -1,8 +1,22 @@
-import React from "react";
+import React from 'react'
 
+/**
+ * This function component is responsible for the form display.
+ * It displays the form and also takes in 3 arguments.
+ *
+ * @param {function} search          - The function to execute when the form is submitted.
+ * @param {string}   city            - The city which is gotten from the form input field.
+ * @param {function} searchOnChange  - The function that updates the state of the value inputed in the form input.
+ * @returns HTML components (Search form)
+ */
 function SearchForm({ search, city, searchOnChange }) {
   return (
     <form className="search-form" onSubmit={search}>
+      {/**
+       *
+       * This is the form input where the search term is typed.
+       *
+       */}
       <input
         className="search-input"
         value={city}
@@ -10,6 +24,11 @@ function SearchForm({ search, city, searchOnChange }) {
         placeholder="Search city..."
       />
 
+      {/**
+       *
+       * This is the button used to submit the form.
+       * The form can also be submitted using the 'Enter' key on your keyboard.
+       */}
       <button type="submit" className="search-btn">
         <svg
           fill="currentColor"
@@ -24,7 +43,12 @@ function SearchForm({ search, city, searchOnChange }) {
         </svg>
       </button>
     </form>
-  );
+  )
 }
 
-export default SearchForm;
+/**
+ * Before any React component/function is used in another component/function,
+ * it is first exported.
+ *
+ */
+export default SearchForm

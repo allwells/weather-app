@@ -1,48 +1,104 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import SearchForm from "./components/SearchForm";
-import Weather from "./components/Weather";
-import axios from "axios";
+/**
+ * @SearchForm is a React component that returns the search form.
+ *
+ */
+import SearchForm from './components/SearchForm'
+/**
+ * @Weather is a component that returns the weather datails in a card.
+ *
+ */
+import Weather from './components/Weather'
+/**
+ * @axios is a javascript library used to fetch data from an API (Application Programming Interface)
+ *
+ */
+import axios from 'axios'
 
+/**
+ * This function/component contains all the data used in this application.
+ * This function/React component imports all those other exported components.
+ *
+ *
+ * @returns HTML components
+ */
 const App = () => {
-  const [city, setCity] = useState("");
-  const [weather, setWeather] = useState();
-  const [errorMsg, setErrorMsg] = useState(false);
+  const [city, setCity] = useState('')
+  const [weather, setWeather] = useState()
+  const [errorMsg, setErrorMsg] = useState(false)
 
-  const API_KEY = "76df88098c544693a0b133409222706";
-  const URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`;
+  /**
+   * @API_KEY this is the API key used for authentication in order to fetch data from the particular API.
+   *
+   */
+  const API_KEY = '76df88098c544693a0b133409222706'
+
+  /**
+   * @URL is the URL which contains the location on the web where this data is fetched.
+   * It contains the @API_KEY for authentication and @city which is the search term.
+   *
+   */
+  const URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`
 
   const search = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
+    /**
+     * Here @axios gets the data from the @URL and @then pushes all of that data
+     * to @setWeather object which can then be accessed using the @weather variable.
+     *
+     * If there was an error and the data was not fetched,
+     * @axios will then @catch the error, set the @setErrorMsg varaible to @true in order to display the error.
+     * And then after 5000ms => 5s, the @setErrorMsg variable is set to @false to remove the error message.
+     *
+     */
     axios
       .get(URL)
       .then((response) => {
-        setWeather(response.data);
+        setWeather(response.data)
       })
       .catch(function (error) {
-        setErrorMsg(true);
+        setErrorMsg(true)
 
         setTimeout(function () {
-          setErrorMsg(false);
-        }, 5000);
-      });
-  };
+          setErrorMsg(false)
+        }, 5000)
+      })
+  }
 
+  /**
+   * This function handles the values that are typed into the search input.
+   * It takes those values and then assign them to @city using the @setCity method.
+   *
+   */
   const searchOnChange = (event) => {
-    setCity(event.target.value);
-  };
+    setCity(event.target.value)
+  }
 
   return (
     <div className="app">
       <div className="tint">
         <div className="main-layout">
+          {/**
+           * @SearchForm component is called here.
+           *
+           */}
           <SearchForm
             search={search}
             city={city}
             searchOnChange={searchOnChange}
           />
 
+          {/**
+           * This is a ternary operation. It is more like the if else conditional statement.
+           * E.G.: expression ? execute this if @true : execute this if @false
+           *
+           * @errorMsg is a boolean variable that is changed to @true whenever there is an error.
+           * If @errorMsg is @true then it'll display an error message.
+           * If @false then it'll display the weather details.
+           *
+           */}
           {errorMsg ? (
             <div className="error-msg">
               <svg
@@ -64,7 +120,7 @@ const App = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
